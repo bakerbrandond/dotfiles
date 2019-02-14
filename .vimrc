@@ -34,7 +34,7 @@ set sessionoptions+=tabpages,globals
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/nerdtree'
-"Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
@@ -53,6 +53,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:easytags_include_members = 1
 Plugin 'xolox/vim-misc'
 Plugin 'wikitopian/hardmode'
 Plugin 'will133/vim-dirdiff'
@@ -89,7 +90,7 @@ set expandtab
 set shiftwidth=4
 set autoindent
 set smartindent
-set cindent     
+set cindent
 
 set backspace=indent,eol,start
 

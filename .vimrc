@@ -34,7 +34,7 @@ set sessionoptions+=tabpages,globals
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/nerdtree'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
@@ -43,6 +43,11 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'edkolev/tmuxline.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'fidian/hexmode'
+Plugin 'navicore/vissort.vim'
+Plugin 'stephpy/vim-yaml'
+"Vim8+?
+"Plugin 'TaDaa/vimade'
+"let g:vimade = {"normalid": '',"basefg": '',"basebg": '',"fadelevel": 0.4,"colbufsize": 30,"rowbufsize": 30,"checkinterval": 32}
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -108,6 +113,9 @@ map <F7> mzgg=G`z
 map K <Plug>(Man)
 "map <leader>k <Plug>(Man)
 "map <leader>v <Plug>(Vman)
+" quick fix list navigation
+map <C-j> :cn<CR>
+map <C-k> :cp<CR>
 
 nnoremap <silent> <C-N> :silent noh<CR>
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>

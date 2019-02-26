@@ -34,7 +34,7 @@ set sessionoptions+=tabpages,globals
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/nerdtree'
-"Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'

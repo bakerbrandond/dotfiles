@@ -34,7 +34,7 @@ set sessionoptions+=tabpages,globals
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/nerdtree'
-Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
@@ -125,6 +125,9 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 colo desert
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+"highlight the current line, and have the highlighting stay where it is when
+"the cursor is moved
+nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 set statusline+=%{fugitive#statusline()}
 
 autocmd BufWritePre * %s/\s\+$//e

@@ -7,6 +7,8 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+set visualbell
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-utils/vim-man'
@@ -26,6 +28,7 @@ Plugin 'tpope/vim-fugitive'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'bling/vim-bufferline'
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'tomtom/quickfixsigns_vim'
@@ -51,6 +54,14 @@ Plugin 'stephpy/vim-yaml'
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
+" colorized bracket pairs
+Plugin 'frazrepo/vim-rainbow'
+"au FileType c,cpp,objc,objcpp call rainbow#load()
+let g:rainbow_active = 1
+Plugin 'altercation/vim-colors-solarized'
+syntax enable
+set background=dark
+"colorscheme solarized
 
 "let g:ctrlp_extensions = ['tag', 'buffertag'] ", 'quickfix', 'dir', 'rtscript',
 "                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
@@ -108,7 +119,7 @@ filetype plugin indent on
 set hidden
 
 " Make
-map <f9> :make
+map <F9> :make
 map <F7> mzgg=G`z
 map K <Plug>(Man)
 "map <leader>k <Plug>(Man)
@@ -116,6 +127,11 @@ map K <Plug>(Man)
 " quick fix list navigation
 map <C-j> :cn<CR>
 map <C-k> :cp<CR>
+
+" toggle relative line numbers
+nnoremap <F11> :set relativenumber!<CR>
+" toggle absolute line numbers
+nnoremap <F12> :set number!<CR>
 
 nnoremap <silent> <C-N> :silent noh<CR>
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -131,3 +147,13 @@ nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 set statusline+=%{fugitive#statusline()}
 
 autocmd BufWritePre * %s/\s\+$//e
+
+" stolen from
+" https://jeffkreeftmeijer.com/vim-number/
+" https://github.com/jeffkreeftmeijer/vim-numbertoggle/blob/master/plugin/number_toggle.vim
+" dunno why Plugin doesn't work...
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+    autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+augroup END

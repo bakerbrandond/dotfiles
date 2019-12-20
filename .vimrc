@@ -39,7 +39,11 @@ set sessionoptions+=tabpages,globals
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='badwolf'
+Plugin 'edkolev/tmuxline.vim'
+let g:tmuxline_powerline_separators = 0
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 "Plugin 'edkolev/promptline.vim'
@@ -58,10 +62,15 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'frazrepo/vim-rainbow'
 "au FileType c,cpp,objc,objcpp call rainbow#load()
 let g:rainbow_active = 1
+Plugin 'Mcmartelle/vim-monokai-bold'
 Plugin 'altercation/vim-colors-solarized'
-syntax enable
-set background=dark
-"colorscheme solarized
+"Plugin 'jceb/vim-orgmode'
+Plugin 'inkarkat/vim-SyntaxRange'
+Plugin 'mattn/calendar-vim'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'tpope/vim-speeddating'
+Plugin 'vim-scripts/utl.vim'
+Plugin 'tpope/vim-repeat'
 
 "let g:ctrlp_extensions = ['tag', 'buffertag'] ", 'quickfix', 'dir', 'rtscript',
 "                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
@@ -92,6 +101,7 @@ filetype plugin indent on    " required
 "noremap <silent> <leader><c-l> :call quickfixsigns#RelNumbersOnce() <cr>
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+
 " Search
 set ic
 set is
@@ -112,7 +122,12 @@ set backspace=indent,eol,start
 
 set tags=./tags;,tags;
 
+syntax enable
 syntax on
+"colorscheme solarized
+"colorscheme monokai-bold
+colo desert
+set background=dark
 
 filetype plugin indent on
 
@@ -138,7 +153,6 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-colo desert
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 "highlight the current line, and have the highlighting stay where it is when

@@ -71,16 +71,24 @@ Plugin 'chrisbra/NrrwRgn'
 Plugin 'tpope/vim-speeddating'
 Plugin 'vim-scripts/utl.vim'
 Plugin 'tpope/vim-repeat'
+"Plugin 'vim-syntastic/syntastic.git'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "let g:ctrlp_extensions = ['tag', 'buffertag'] ", 'quickfix', 'dir', 'rtscript',
 "                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:easytags_include_members = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:easytags_include_members = 1
 Plugin 'xolox/vim-misc'
-Plugin 'wikitopian/hardmode'
+Plugin 'takac/vim-hardtime'
 Plugin 'will133/vim-dirdiff'
 
 " All of your Plugins must be added before the following line
@@ -149,7 +157,7 @@ nnoremap <F11> :set relativenumber!<CR>
 nnoremap <F12> :set number!<CR>
 
 nnoremap <silent> <C-N> :silent noh<CR>
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+nnoremap <leader>h <Esc>:HardTimeToggle<CR>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 

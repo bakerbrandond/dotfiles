@@ -1,21 +1,15 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 set visualbell
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-utils/vim-man'
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'vim-utils/vim-man'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -29,29 +23,29 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'bling/vim-bufferline'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'bling/vim-bufferline'
+"Plugin 'airblade/vim-gitgutter'
 "Plugin 'tomtom/quickfixsigns_vim'
-Plugin 'gcmt/taboo.vim'
+"Plugin 'gcmt/taboo.vim'
 set sessionoptions+=tabpages,globals
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'xolox/vim-easytags'
 "Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme='badwolf'
-Plugin 'edkolev/tmuxline.vim'
-let g:tmuxline_powerline_separators = 0
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"let g:airline_theme='badwolf'
+"Plugin 'edkolev/tmuxline.vim'
+"let g:tmuxline_powerline_separators = 0
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'majutsushi/tagbar'
 "Plugin 'edkolev/promptline.vim'
 "Plugin 'edkolev/tmuxline.vim'
 "Plugin 'scrooloose/syntastic'
-Plugin 'fidian/hexmode'
-Plugin 'navicore/vissort.vim'
-Plugin 'stephpy/vim-yaml'
+"Plugin 'fidian/hexmode'
+"Plugin 'navicore/vissort.vim'
+"Plugin 'stephpy/vim-yaml'
 "Vim8+?
 "Plugin 'TaDaa/vimade'
 "let g:vimade = {"normalid": '',"basefg": '',"basebg": '',"fadelevel": 0.4,"colbufsize": 30,"rowbufsize": 30,"checkinterval": 32}
@@ -59,18 +53,18 @@ Plugin 'stephpy/vim-yaml'
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 " colorized bracket pairs
-Plugin 'frazrepo/vim-rainbow'
+"Plugin 'frazrepo/vim-rainbow'
 "au FileType c,cpp,objc,objcpp call rainbow#load()
-let g:rainbow_active = 1
-Plugin 'Mcmartelle/vim-monokai-bold'
-Plugin 'altercation/vim-colors-solarized'
+"let g:rainbow_active = 1
+"Plugin 'Mcmartelle/vim-monokai-bold'
+"Plugin 'altercation/vim-colors-solarized'
 "Plugin 'jceb/vim-orgmode'
-Plugin 'inkarkat/vim-SyntaxRange'
-Plugin 'mattn/calendar-vim'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'tpope/vim-speeddating'
-Plugin 'vim-scripts/utl.vim'
-Plugin 'tpope/vim-repeat'
+"Plugin 'inkarkat/vim-SyntaxRange'
+"Plugin 'mattn/calendar-vim'
+"Plugin 'chrisbra/NrrwRgn'
+"Plugin 'tpope/vim-speeddating'
+"Plugin 'vim-scripts/utl.vim'
+"Plugin 'tpope/vim-repeat'
 "Plugin 'vim-syntastic/syntastic.git'
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -87,28 +81,12 @@ Plugin 'tpope/vim-repeat'
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
 "let g:easytags_include_members = 1
-Plugin 'xolox/vim-misc'
-Plugin 'takac/vim-hardtime'
-Plugin 'will133/vim-dirdiff'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"Plugin 'xolox/vim-misc'
+"Plugin 'takac/vim-hardtime'
+"Plugin 'will133/vim-dirdiff'
 
 "noremap <silent> <leader><c-l> :call quickfixsigns#RelNumbersOnce() <cr>
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
 
 " Search
 set ic

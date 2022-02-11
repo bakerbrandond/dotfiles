@@ -1,27 +1,16 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set mouse=a
+set clipboard=unnamed
+
 set visualbell
 
-" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
+"Plug 'dense-analysis/ale'
+"Plug 'neoclide/coc.nvim'
+"Plug 'sheerun/vim-polyglot'
 "Plugin 'vim-utils/vim-man'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
-
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "Plugin 'bling/vim-bufferline'
 "Plugin 'airblade/vim-gitgutter'
@@ -54,33 +43,8 @@ set sessionoptions+=tabpages,globals
 "set statusline+=%*
 " colorized bracket pairs
 "Plugin 'frazrepo/vim-rainbow'
-"au FileType c,cpp,objc,objcpp call rainbow#load()
-"let g:rainbow_active = 1
-"Plugin 'Mcmartelle/vim-monokai-bold'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'jceb/vim-orgmode'
-"Plugin 'inkarkat/vim-SyntaxRange'
-"Plugin 'mattn/calendar-vim'
-"Plugin 'chrisbra/NrrwRgn'
-"Plugin 'tpope/vim-speeddating'
 "Plugin 'vim-scripts/utl.vim'
 "Plugin 'tpope/vim-repeat'
-"Plugin 'vim-syntastic/syntastic.git'
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-"let g:ctrlp_extensions = ['tag', 'buffertag'] ", 'quickfix', 'dir', 'rtscript',
-"                          \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:easytags_include_members = 1
 "Plugin 'xolox/vim-misc'
 "Plugin 'takac/vim-hardtime'
 "Plugin 'will133/vim-dirdiff'
@@ -108,12 +72,15 @@ set backspace=indent,eol,start
 
 set tags=./tags;,tags;
 
-syntax enable
 syntax on
-"colorscheme solarized
-"colorscheme monokai-bold
-colo desert
-set background=dark
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+"set background=dark
+"colorscheme PaperColor
+colorscheme nord
 
 filetype plugin indent on
 
@@ -157,3 +124,5 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
     autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
+
+"let g:vimtex_view_method = ‘zathura’

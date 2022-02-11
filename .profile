@@ -26,7 +26,3 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# needed for gpg2
-export GPG_TTY=$(tty)
-
-source $HOME/.alias

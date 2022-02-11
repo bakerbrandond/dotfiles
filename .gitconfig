@@ -1,0 +1,22 @@
+[core]
+	editor = vim
+	whitespace = trailing-space,space-before-tab
+	excludesfile = /home/bbd/.gitignore
+[apply]
+	whitespace = warn
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+	autocorrect = 1
+	submodule = 1
+[push]
+	default = current
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[user]
+	email = bakerbrandond@gmail.com
+	name = Brandon Baker

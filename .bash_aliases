@@ -7,6 +7,7 @@ alias cat=bat
 #alias ll='exa -l'
 alias f='fzf --preview "bat --color \"always\" {}"'
 alias top=bpytop
+alias ctop=cointop
 alias aliasrc='vim ~/.alias'
 alias vimrc='vim ~/.vimrc'
 alias tmuxrc='vim ~/.tmux.conf.local'

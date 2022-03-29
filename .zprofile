@@ -1,1 +1,0 @@
-/home/bbd/.zprezto/runcoms/zprofile

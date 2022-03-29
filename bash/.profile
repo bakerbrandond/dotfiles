@@ -26,3 +26,23 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes npm global installs
+#PATH=/usr/local/lib/node_modules:$PATH
+if [ -d $(npm root -g) ] ; then
+    PATH="$(npm root -g):$PATH"
+fi
+
+#
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+#PATH=$(go env GOPATH)/bin:$PATH
+# Install Ruby Gems to ~/gems
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
+
+# needed for gpg2
+# TODO seems to break when login from desktop
+#      current M.O ssh
+export GPG_TTY=$(tty)

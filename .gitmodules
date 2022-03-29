@@ -1,0 +1,12 @@
+[submodule "vim/.vim/pack/colors/start/nord-vim"]
+	path = vim/.vim/pack/colors/start/nord-vim
+	url = git@github.com:arcticicestudio/nord-vim.git
+[submodule "tmux/.tmux/plugins/tpm"]
+	path = tmux/.tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+[submodule "vim/.vim/pack/bakerbrandond/start/lightline.vim"]
+	path = vim/.vim/pack/bakerbrandond/start/lightline.vim
+	url = git@github.com:itchyny/lightline.vim.git
+[submodule "vim/.vim/pack/bakerbrandond/start/tmuxline.vim"]
+	path = vim/.vim/pack/bakerbrandond/start/tmuxline.vim
+	url = git@github.com:edkolev/tmuxline.vim.git

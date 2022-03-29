@@ -9,7 +9,7 @@
 # Browser
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
+if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
@@ -17,9 +17,15 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER='less'
+if [[ -z "$EDITOR" ]]; then
+  export EDITOR='vim'
+fi
+if [[ -z "$VISUAL" ]]; then
+  export VISUAL='vim'
+fi
+if [[ -z "$PAGER" ]]; then
+  export PAGER='less'
+fi
 
 #
 # Language
@@ -54,23 +60,15 @@ path=(
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X to enable it.
-export LESS='-g -i -M -R -S -w -X -z-4'
+if [[ -z "$LESS" ]]; then
+  export LESS='-g -i -M -R -S -w -X -z-4'
+fi
 
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
+if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-# needed for gpg2
-# TODO seems to break when login from desktop
-#      current M.O ssh
+# TODO share more btw .profile
 export GPG_TTY=$(tty)
-
-export PATH=$(go env GOPATH)/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/usr/local/lib/node_modules:$PATH
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi

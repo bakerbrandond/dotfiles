@@ -14,9 +14,12 @@
 [push]
 	default = current
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [commit]
 	gpgsign = true
 [user]
-	email = bakerbrandond@gmail.com
 	name = Brandon Baker
+	email = bbaker@pushnami.com
+[include]
+    path = ~/.gitconfig.key
+    #signingkey = F433199BEC90F2E1

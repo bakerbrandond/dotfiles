@@ -1,5 +1,4 @@
 alias gpg=gpg2
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias make=mmake
 alias man=tldr
 alias cat=bat

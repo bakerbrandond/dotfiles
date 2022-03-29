@@ -11,7 +11,11 @@ set visualbell
 
 let g:vimtex_view_method = 'zathura'
 
-let g:tmuxline_powerline_separators = 0
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+
+"let g:tmuxline_powerline_separators = 0
 
 let g:hexmode_patterns = '*.bin,*.hex,*.exe,*.dat,*.o'
 let g:hexmode_xxd_options = '-g 1'
@@ -93,3 +97,5 @@ nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 set statusline+=%{fugitive#statusline()}
 
 autocmd BufWritePre * %s/\s\+$//e
+
+set laststatus=2

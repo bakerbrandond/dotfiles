@@ -99,3 +99,5 @@ set statusline+=%{fugitive#statusline()}
 autocmd BufWritePre * %s/\s\+$//e
 
 set laststatus=2
+
+set noswapfile

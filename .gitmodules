@@ -28,3 +28,6 @@
 [submodule "vim/.vim/pack/bakerbrandond/start/vim-polyglot"]
 	path = vim/.vim/pack/bakerbrandond/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "nvm/.nvm"]
+	path = nvm/.nvm
+	url = https://github.com/nvm-sh/nvm.git

@@ -17,9 +17,5 @@
 	defaultBranch = master
 [commit]
 	gpgsign = true
-[user]
-	name = Brandon Baker
-	email = bbaker@pushnami.com
 [include]
     path = ~/.gitconfig.key
-    #signingkey = F433199BEC90F2E1

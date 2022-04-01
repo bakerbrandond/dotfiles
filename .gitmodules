@@ -34,3 +34,6 @@
 [submodule ".zprezto"]
 	path = zprezto/.zprezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "vim/.vim/pack/bakerbrandond/start/vim-node"]
+	path = vim/.vim/pack/bakerbrandond/start/vim-node
+	url = https://github.com/moll/vim-node.git

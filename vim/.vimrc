@@ -101,3 +101,6 @@ autocmd BufWritePre * %s/\s\+$//e
 set laststatus=2
 
 set noswapfile
+
+" use ripgrep (rg) for grep
+set grepprg=rg\ --vimgrep\ --smart-case

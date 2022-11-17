@@ -1,1 +1,2 @@
 .ssh/id_rsa filter=git-crypt diff=git-crypt
+.ssh/id_ed25519 filter=git-crypt diff=git-crypt

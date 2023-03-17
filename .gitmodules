@@ -37,3 +37,9 @@
 [submodule "vim/.vim/pack/bakerbrandond/start/vim-node"]
 	path = vim/.vim/pack/bakerbrandond/start/vim-node
 	url = https://github.com/moll/vim-node.git
+[submodule "vim/.vim/pack/bakerbrandond/start/typescript-vim"]
+	path = vim/.vim/pack/bakerbrandond/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "vim/.vim/pack/bakerbrandond/start/coc.nvim"]
+	path = vim/.vim/pack/bakerbrandond/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git

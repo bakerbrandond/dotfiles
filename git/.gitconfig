@@ -2,6 +2,7 @@
 	editor = vim
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
 	whitespace = warn
 [color]
@@ -19,3 +20,22 @@
 	gpgsign = true
 [include]
     path = ~/.gitconfig.key
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[user]
+	signingkey = 7613835C7B5698A4
+	name = Brandon Baker
+	email = bbaker@pushnami.com

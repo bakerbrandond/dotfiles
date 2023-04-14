@@ -73,3 +73,9 @@ fi
 
 # TODO share more btw .profile
 export GPG_TTY=$(tty)
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+ps -p $SSH_AGENT_PID > /dev/null 2>&1 || eval "$(ssh-agent > /dev/null 2>&1)"
+
+export DOCKER_DEFAULT_PLATFORM=linux/amd64

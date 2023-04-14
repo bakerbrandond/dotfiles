@@ -1,3 +1,9 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -26,6 +32,8 @@ let g:rainbow_active = 1
 
 let g:hardtime_default_on = 1
 
+" Use release branch (recommended)
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'Valloric/YouCompleteMe'
@@ -69,6 +77,8 @@ filetype plugin indent on
 
 set hidden
 
+set mapleader = ","
+
 " Make
 map <F9> :make
 map <F7> mzgg=G`z
@@ -104,3 +114,13 @@ set noswapfile
 
 " use ripgrep (rg) for grep
 set grepprg=rg\ --vimgrep\ --smart-case
+
+"fixes redrawtime exceeded syntax highlighting disabled
+"https://github.com/prabirshrestha/vim-lsp/issues/786
+set re=0
+
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
+
+" Source Vim configuration file and install plugins
+nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>

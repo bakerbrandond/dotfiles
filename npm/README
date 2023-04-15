@@ -1,0 +1,10 @@
+globally installed packages
+
+❯ npm list -g
+/Users/bbaker/.asdf/installs/nodejs/18.10.0/lib
+├── @lyricstify/lyricstify@1.0.5
+├── @nestjs/cli@9.2.0
+├── corepack@0.14.1
+├── dockly@3.23.0
+└── npm@8.19.2
+

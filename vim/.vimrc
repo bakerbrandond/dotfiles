@@ -1,126 +1,109 @@
+set nocompatible
+" fix weird 2;2R3;1R issue
+set t_u7=
+
+let mapleader = ","
+
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+"Plug 'dense-analysis/ale'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'moll/vim-node'
 
-set mouse=a
-set clipboard=unnamed
+Plug 'nanotee/zoxide.vim'
+Plug 'jparise/vim-graphql'
 
-" for git-gutter responsiveness
-set updatetime=100
+Plug 'luochen1990/rainbow'
+"Plug 'frazrepo/vim-rainbow'
 
-set visualbell
+Plug 'edkolev/tmuxline.vim'
 
-let g:vimtex_view_method = 'zathura'
+Plug 'itchyny/lightline.vim'
 
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
+Plug 'sheerun/vim-polyglot'
 
-"let g:tmuxline_powerline_separators = 0
-
-let g:hexmode_patterns = '*.bin,*.hex,*.exe,*.dat,*.o'
-let g:hexmode_xxd_options = '-g 1'
-
-let g:vimade = {"normalid": '',"basefg": '',"basebg": '',"fadelevel": 0.4,"colbufsize": 30,"rowbufsize": 30,"checkinterval": 32}
-
-let g:rainbow_active = 1
-
-let g:hardtime_default_on = 1
-
+Plug 'nordtheme/vim'
+" Make sure you use single quotes
 " Use release branch (recommended)
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'neoclide/coc.nvim'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'vim-utils/vim-man'
-"Plugin 'tomtom/quickfixsigns_vim'
-"Plugin 'xolox/vim-easytags'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'kien/ctrlp.vim'
-"Plugin 'tpope/vim-repeat'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Search
-set ic
-set is
-set hls
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
-set number
-set relativenumber
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-set tabstop=4
-set softtabstop=4
-set expandtab
-set shiftwidth=4
-set autoindent
-set smartindent
-set cindent
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-set backspace=indent,eol,start
+" On-demand loading
+Plug 'preservim/NERDTree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-set tags=./tags;,tags;
+" Using a non-default branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-syntax on
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-endif
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
 
-colorscheme nord
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-filetype plugin indent on
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-set hidden
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
 
-set mapleader = ","
+Plug 'ryanoasis/vim-devicons'
 
-" Make
-map <F9> :make
-map <F7> mzgg=G`z
-map K <Plug>(Man)
-"map <leader>k <Plug>(Man)
-"map <leader>v <Plug>(Vman)
-" quick fix list navigation
-map <C-j> :cn<CR>
-map <C-k> :cp<CR>
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dadbod'
 
-" toggle relative line numbers
-nnoremap <F11> :set relativenumber!<CR>
-" toggle absolute line numbers
-nnoremap <F12> :set number!<CR>
+Plug 'airblade/vim-gitgutter'
 
-nnoremap <silent> <C-N> :silent noh<CR>
-nnoremap <leader>h <Esc>:HardTimeToggle<CR>
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+Plug 'preservim/NERDTree'
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-"highlight the current line, and have the highlighting stay where it is when
-"the cursor is moved
-nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
-set statusline+=%{fugitive#statusline()}
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
 
-autocmd BufWritePre * %s/\s\+$//e
-
-set laststatus=2
-
-set noswapfile
-
-" use ripgrep (rg) for grep
-set grepprg=rg\ --vimgrep\ --smart-case
-
-"fixes redrawtime exceeded syntax highlighting disabled
-"https://github.com/prabirshrestha/vim-lsp/issues/786
-set re=0
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = [ 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-pyright', 'coc-go', 'coc-css', 'coc-html' ]
+
 
 " Source Vim configuration file and install plugins
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
+
+set encoding=UTF-8
+colorscheme nord
+
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

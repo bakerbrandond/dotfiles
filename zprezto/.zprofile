@@ -79,3 +79,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ps -p $SSH_AGENT_PID > /dev/null 2>&1 || eval "$(ssh-agent > /dev/null 2>&1)"
 
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+. ~/.secrets
+
+export SPOTIFY_ID=$GSPT_ID
+export SPOTIFY_SECRET=$GSPT_SECRET

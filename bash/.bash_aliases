@@ -19,11 +19,7 @@ alias dclogs='docker-compose logs -f --tail=10'
 alias dcrestart='docker-compose up -d --force-restart'
 alias dcbounce='dc up -d --force-recreate'
 alias vim='/opt/homebrew/bin/vim'
-# TODO DO NOT CHECK IN APIKEY
-#alias sgpt='docker run --rm --env OPENAI_API_KEY= --volume gpt-cache:/tmp/shell_gpt sgpt'
-# TODO DO NOT CHECK IN APIKEY
-# PERSONAL PAID APIKEY
-alias sgpt='docker run --rm --env OPENAI_API_KEY= --volume gpt-cache:/tmp/shell_gpt sgpt'
+alias sgpt='docker run --rm --env OPENAI_API_KEY=$OPENAI_API_KEY --volume gpt-cache:/tmp/shell_gpt sgpt'
 alias csgpt='cowsay < sgpt | lolcat -a -s 50'
 alias rm='rip'
 alias ps='procs'

@@ -20,7 +20,9 @@ alias dcrestart='docker-compose up -d --force-restart'
 alias dcbounce='dc up -d --force-recreate'
 alias vim='/opt/homebrew/bin/vim'
 alias sgpt='docker run --rm --env OPENAI_API_KEY=$OPENAI_API_KEY --volume gpt-cache:/tmp/shell_gpt sgpt'
-alias csgpt='cowsay < sgpt | lolcat -a -s 50'
+csgpt() {
+  sgpt $1 | cowsay | lolcat -a -s 50
+}
 alias rm='rip'
 alias ps='procs'
 alias less='more'

@@ -1,3 +1,6 @@
+set hidden
+
+autocmd FileType gitcommit setlocal spell
 set nocompatible
 " fix weird 2;2R3;1R issue
 set t_u7=
@@ -22,6 +25,7 @@ call plug#begin()
 "Plug 'leafgarland/typescript-vim'
 "Plug 'moll/vim-node'
 
+Plug 'sotte/presenting.vim'
 Plug 'nanotee/zoxide.vim'
 Plug 'jparise/vim-graphql'
 

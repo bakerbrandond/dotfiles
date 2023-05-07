@@ -1,5 +1,10 @@
 set hidden
 
+"help highlighting
+set conceallevel=0
+hi link HelpBar Normal
+hi link HelpStar Normal
+
 autocmd FileType gitcommit setlocal spell
 set nocompatible
 " fix weird 2;2R3;1R issue
@@ -25,6 +30,11 @@ call plug#begin()
 "Plug 'leafgarland/typescript-vim'
 "Plug 'moll/vim-node'
 
+"Plug 'numToStr/FTerm.nvim'
+"Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+"Plug 'vimpostor/vim-tpipeline'
+
+Plug 'junegunn/goyo.vim'
 Plug 'sotte/presenting.vim'
 Plug 'nanotee/zoxide.vim'
 Plug 'jparise/vim-graphql'

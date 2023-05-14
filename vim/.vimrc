@@ -51,7 +51,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'nordtheme/vim'
 " Make sure you use single quotes
 " Use release branch (recommended)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -101,7 +101,7 @@ call plug#end()
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " CoC extensions
-let g:coc_global_extensions = [ 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-pyright', 'coc-go', 'coc-css', 'coc-html' ]
+"let g:coc_global_extensions = [ 'coc-json', 'coc-tsserver', 'coc-sh', 'coc-clangd', 'coc-pyright', 'coc-go', 'coc-css', 'coc-html' ]
 
 
 " Source Vim configuration file and install plugins

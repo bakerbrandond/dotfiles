@@ -15,32 +15,41 @@ fi
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  #source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+#fi
+
+# source antidote
+#source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
 
 # Customize to your needs...
-plugins=(
-  asdf
-  httpie
-  kubectl
-  fzf
-  docker
-  docker-compose
-  git
-  gpg-agent
-  keychain
-  dotenv
-  npm
-  macos
-  tmux
-  redis-cli
-)
+#plugins=(
+  #asdf
+  #httpie
+  #kubectl
+  #fzf
+  #docker
+  #docker-compose
+  #git
+  #gpg-agent
+  #keychain
+  #dotenv
+  #npm
+  #tmux
+  #redis-cli
+  #brew
+  #macos
+#)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-#eval "$(zoxide init zsh)"
+eval "$(navi widget zsh)"
+eval "$(zoxide init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -57,6 +66,8 @@ source ~/.bash_aliases
 
 test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
+export READER=zathura
+export PATH="$HOME/latexrun:$PATH"
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin

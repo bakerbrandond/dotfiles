@@ -27,10 +27,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes npm global installs
-#PATH=/usr/local/lib/node_modules:$PATH
-if [ -d $(npm root -g) ] ; then
-    PATH="$(npm root -g):$PATH"
-fi
+PATH=/usr/local/lib/node_modules:$PATH
+#if [ -d $(npm root -g) ] ; then
+    #PATH="$(npm root -g):$PATH"
+#fi
 
 #
 if [ -f ~/.bash_aliases ]; then
@@ -46,3 +46,4 @@ fi
 # TODO seems to break when login from desktop
 #      current M.O ssh
 export GPG_TTY=$(tty)
+export XDG_CONFIG_HOME=$HOME/.config

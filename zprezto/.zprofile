@@ -87,3 +87,5 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 export SPOTIFY_ID=$GSPT_ID
 export SPOTIFY_SECRET=$GSPT_SECRET
+
+PATH=$HOME/.local/bin:$PATH

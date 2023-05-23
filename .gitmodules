@@ -31,9 +31,6 @@
 [submodule "nvm/.nvm"]
 	path = nvm/.nvm
 	url = https://github.com/nvm-sh/nvm.git
-[submodule ".zprezto"]
-	path = zprezto/.zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "vim/.vim/pack/bakerbrandond/start/vim-node"]
 	path = vim/.vim/pack/bakerbrandond/start/vim-node
 	url = https://github.com/moll/vim-node.git

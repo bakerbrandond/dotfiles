@@ -1,0 +1,11 @@
+ohmyzsh/ohmyzsh
+romkatv/powerlevel10k
+TyWR/Nord-zsh
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions
+#belak/zsh-utils
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+rummik/zsh-tailf
+#kiurchv/asdf.plugin.zsh
+matthewfranglen/speedread kind:path

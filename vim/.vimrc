@@ -32,10 +32,12 @@ call plug#begin()
 
 "Plug 'numToStr/FTerm.nvim'
 "Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+Plug 'BourgeoisBear/vim-rsvp'
 Plug 'ubaldot/vim-writegood'
 "Plug 'vimpostor/vim-tpipeline'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'ron89/thesaurus_query.vim'
+Plug 'mhinz/vim-startify'
 
 Plug 'lervag/vimtex'
 Plug 'junegunn/limelight.vim'
@@ -57,6 +59,7 @@ Plug 'nordtheme/vim'
 " Make sure you use single quotes
 " Use release branch (recommended)
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jayli/vim-easycomplete'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'

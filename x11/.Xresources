@@ -1,0 +1,146 @@
+! ===== Colors
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord6
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
+
+! ===== cursors
+Xcursor.size  : 32
+
+! ===== fonts
+Xft.dpi       : 150
+Xft.autohint  : 0
+Xft.lcdfilter : lcddefault
+Xft.hintstyle : hintslight
+Xft.hinting   : 1
+Xft.antialias : 1
+Xft.rgba      : rgb
+! fixed is the one true font - use iso10646 for unicode characters
+! *font	        : -misc-spleen-medium-r-normal--32-320-72-72-c-160-iso10646-1
+*faceName	: Noto Mono
+*faceSize       : 12
+*renderFont     : true
+
+! ===== xidle
+! drag pointer to lower left corner to lock screen
+XIdle*position : sw
+! and leave it there for one second.
+XIdle*delay    : 1
+! also lock screen after 5 minutes idle
+XIdle*timeout  : 300
+
+! ===== xlock
+! actually turn the backlight off
+XLock.dpmsoff     : 1
+! plain white-on-black lock screen
+XLock.description : off
+XLock.echokeys    : off
+XLock.info        : Judicial warrant or GTFO.
+XLock.background  : #16161d
+XLock.foreground  : nord5
+XLock.mode        : blank
+XLock.username    : username: 
+XLock.password    : password: 
+XLock.font        : -misc-spleen-medium-r-normal--32-320-72-72-c-160-iso10646-1
+XLock.planfont    : -misc-spleen-medium-r-normal--24-240-72-72-c-120-iso10646-1
+
+! ===== xclock
+! digital clock in lower right-hand corner
+XClock*analog      : false
+XClock*twentyfour  : true
+XClock*padding     : 1
+XClock*font        : -misc-spleen-medium-r-normal--24-240-72-72-c-120-iso10646-1
+XClock*background  : #16161d
+XClock*foreground  : nord5
+XClock*borderWidth : 1
+
+
+! ===== XMan settings
+xman*manualFontNormal        : -adobe-times-medium-r-normal--24-240-100-100-p-120-iso10646-1
+xman*manualFontBold          : -adobe-times-bold-r-normal--24-240-100-100-p-120-iso10646-1
+xman*manualFontItalic        : -adobe-times-medium-i-normal--24-240-100-100-p-120-iso10646-1
+
+
+! ===== XTerm settings
+! adjust default size
+xterm*geometry               : 80x24
+! remove the additional black border
+xterm*borderWidth            : 0
+xterm*internalBorder         : 10
+! set TERM env variable to use 256 colors
+xterm*termName               : xterm-256color
+! make alt key work normally
+xterm*vt100.metaSendsEscape  : true
+! save ~10,000 lines of scrollback
+xterm*v100.saveLines         : 10240
+! hide scrollbar
+xterm*vt100.scrollBar        : false
+! terminal bell tells the window manager to raise urgent flag
+xterm*vt100.bellIsUrgent     : true
+! no bold fonts - just use brighter colors
+xterm*allowBoldFonts         : false
+! pressing a key automatically scrolls to the bottom
+xterm*scrollKey              : true
+! don't allow terminal to go fullscreen
+xterm*fullscreen             : never
+! clicking a line selects only from the current word forward
+xterm*cutToBeginningOfLine   : false
+! and don't include a trailing newline in the selection!
+xterm*cutNewline             : false
+! some black magic to change what characters XTerm considers "word delimiters"
+xterm*charClass              : 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+! select word on two clicks
+xterm*on2Clicks              : word
+! select whole line on three clicks
+xterm*on3Clicks              : line
+! unicode XTerm
+xterm*utf8                   : 1
+
+! GNU Emacs settings
+Emacs*geometry			     : 80x36
+Emacs*font					 : Noto Mono-12
+Emacs*toolBar				 : off
+

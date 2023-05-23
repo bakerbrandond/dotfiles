@@ -1,0 +1,12 @@
+❯ asdf list
+golang
+*1.20.4
+nodejs
+*20.1.0
+python
+No versions installed
+❯ asdf plugin-list
+golang
+nodejs
+python
+

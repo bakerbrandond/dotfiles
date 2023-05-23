@@ -1,0 +1,102 @@
+* {
+    nordwhite1: #d8dee9;
+    nordgrey1: #2e3440;
+    nordgrey4: #3b4252;
+
+    font-size: 1px;
+    border-color: @nordwhite1;
+    background-color: @nordgrey1;
+    text-color: @nordwhite1;
+    margin: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    spacing: 0;
+}
+
+#listview {
+    spacing: 0;
+    scrollbar: true;
+    margin: 0;
+    dynamic: true;
+
+}
+
+#window {
+    background-color: @nordgrey1;
+    border-color: @nordwhite1;
+    border: 16;
+    border-radius: 0px;
+}
+
+#mainbox {
+    border: 0;
+    padding: 0;
+    background-color: @nordgrey1;
+}
+
+#element {
+    padding: 16;
+    border: 0 0 1 0;
+    border-color: @nordwhite1;
+    background-color: @nordgrey1;
+}
+
+#element.selected.normal {
+    background-color: @nordwhite1;
+    text-color: @nordgrey1;
+    border-radius: 0px;
+
+    border: 0 0 1 0;
+    border-color: @nordwhite1;
+}
+
+#element.alternate.normal {
+    background-color: @nordgrey1;
+}
+
+#element.normal.active {
+    background-color: #434c5e;
+}
+
+#element.alternate.active {
+    background-color: #434c5e;
+}
+
+#element.selected.active {
+    background-color: @nordwhite1;
+    text-color: @nordgrey1;
+    border-radius: 0px;
+
+    border: 0 0 1 0;
+    border-color: @nordgrey4;
+}
+
+#inputbar {
+    border: 0 solid 0 solid 1 solid 0 solid;
+    margin: 0;
+    spacing: 0;
+    border-color: @nordgrey4;
+}
+
+#prompt {
+    padding: 16;
+    background-color: @nordgrey1;
+    border: 0 1 0 0;
+}
+
+#entry {
+    padding: 16;
+}
+
+#scrollbar {
+    border: 0;
+    width: 8px;
+    handle-color: @nordgrey4;
+    handle-width: 8px;
+    background-color: @nordgrey1;
+}
+
+#scrollbar handle {
+    border: 1px;
+    border-color: #ff0000;
+}

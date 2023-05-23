@@ -1,0 +1,32 @@
+#! /bin/sh
+
+zsetroot -cursor_name left_ptr
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.62
+bspc config focus_follows_pointer true
+bspc config pointer_modifier mod1
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config automatic_scheme spiral
+
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a Zoom desktop='^3' state=floating follow=on
+bspc rule -a Slack desktop='^3' state=floating follow=on
+bspc rule -a obs desktop='^8'
+bspc rule -a discord desktop='^7'
+
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+
+feh --bg-center ~/.cpu_city.png &
+#polybar --config=/home/bbaker/.config/polybar/config.ini nord &
+$HOME/.config/polybar/launch.sh

@@ -71,3 +71,11 @@ export PATH="$HOME/latexrun:$PATH"
 export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
+
+# pnpm
+export PNPM_HOME="/home/bbaker/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

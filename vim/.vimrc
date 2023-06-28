@@ -30,6 +30,8 @@ call plug#begin()
 "Plug 'leafgarland/typescript-vim'
 "Plug 'moll/vim-node'
 
+"Plug 'vivien/vim-linux-coding-style'
+"Plug '8ooo8/leetcode'
 "Plug 'numToStr/FTerm.nvim'
 "Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'BourgeoisBear/vim-rsvp'

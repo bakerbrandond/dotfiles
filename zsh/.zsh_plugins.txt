@@ -9,3 +9,4 @@ zsh-users/zsh-history-substring-search
 rummik/zsh-tailf
 #kiurchv/asdf.plugin.zsh
 matthewfranglen/speedread kind:path
+unixorn/git-extra-commands

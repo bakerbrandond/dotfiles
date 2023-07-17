@@ -3,6 +3,7 @@
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = input
 [apply]
 	whitespace = warn
 [color]
@@ -41,3 +42,8 @@
 	email = bakerbrandond@gmail.com
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[pull]
+	rebase = true
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff

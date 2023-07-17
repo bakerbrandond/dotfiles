@@ -34,4 +34,4 @@ alias lzd='lazydocker'
 alias lzg='lazygit'
 alias logout='gnome-session-quit'
 alias vimgolf='docker run --rm -it -e "key=$VIMGOLF_KEY" ghcr.io/filbranden/vimgolf'
-alias rm_wwan_aps="nmcli --fields UUID,TIMESTAMP-REAL con show | grep never |  awk '{print $1}' | while read line; do nmcli con delete uuid  $line;    done"
+alias vimdiff='nvim -d'

@@ -26,6 +26,7 @@ call plug#begin()
 " You can specify a custom plugin directory by passing it as the argument
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
+Plug 'github/copilot.vim'
 "Plug 'dense-analysis/ale'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'moll/vim-node'

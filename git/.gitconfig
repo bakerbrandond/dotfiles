@@ -47,3 +47,10 @@
 [merge]
 	conflictstyle = diff3
 	tool = vimdiff
+[diff]
+	tool = difftastic
+	external = difft
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft $LOCAL $REMOTE

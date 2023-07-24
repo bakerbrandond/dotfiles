@@ -9,7 +9,7 @@ alias top=bpytop
 alias ctop=cointop
 alias aliasrc='vim ~/.alias'
 alias vimrc='vim ~/.vimrc'
-alias tmuxrc='vim ~/.tmux.conf.local'
+alias tmuxrc='vim ~/.tmux.conf'
 #alias tmux='TERM=xterm-256color tmux'
 alias tmux='tmux -2'
 alias grep=rg

@@ -37,7 +37,7 @@ Plug 'github/copilot.vim'
 "Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'BourgeoisBear/vim-rsvp'
 Plug 'ubaldot/vim-writegood'
-"Plug 'vimpostor/vim-tpipeline'
+Plug 'vimpostor/vim-tpipeline'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'mhinz/vim-startify'

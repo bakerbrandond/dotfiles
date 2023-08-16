@@ -1,0 +1,14 @@
+#left: h a
+#down: j s
+#up: k w
+#right: l d
+#buttons: m , .
+#buttons: f r v
+#cursor_color: #BF616A
+#grid_color: #BF617A
+#grid_border_color: #2E3440
+#hint_bgcolor: #2E3440
+#hint_fgcolor: #E5E9F0
+hint_font: CaskaydiaCove Nerd Font
+#indicator_color: #BF616A
+normal_blink_interval: 4000 3000

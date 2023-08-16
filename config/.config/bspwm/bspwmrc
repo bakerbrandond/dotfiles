@@ -1,11 +1,34 @@
 #! /bin/sh
 
-zsetroot -cursor_name left_ptr
+# source the colors.
+. "/home/bbd/.cache/wal/colors.sh"
+
+# Set the border colors.
+bspc config border_radius 26.0
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color3"
+bspc config focused_border_color "$color15"
+bspc config presel_feedback_color "$color3"
+
+xsetroot -cursor_name left_ptr &
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+external_monitor=$(xrandr --query | grep 'DP-4-1')
+if [[ $external_monitor = *connected* ]]; then
+  echo "external connected"
+  xrandr --output DP-4-1 --primary --mode 3440x1440 --rotate normal --output eDP-1 --right-of DP-4-1 --mode 1920x1200 --rotate normal
+  bspc monitor DP-4-1 -d I #II III IV V #VI VII VIII IX X
+  bspc monitor DP-4-1 -d II III IV V VI #VII VIII IX X
+else
+  echo "no external connected"
+  xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal
+  bspc monitor eDP-1 -d I II III IV V #VI VII VIII IX X
+fi
 
-bspc config border_width         2
+feh --bg-center /usr/share/backgrounds/Tree5160.png &
+
+bspc config border_width         3
 bspc config window_gap          12
 
 bspc config split_ratio          0.62
@@ -17,16 +40,35 @@ bspc config gapless_monocle      true
 bspc config automatic_scheme spiral
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+#bspc rule -a chrome desktop='^2'
+bspc rule -a zathura follow=on
 bspc rule -a Zoom desktop='^3' state=floating follow=on
-bspc rule -a Slack desktop='^3' state=floating follow=on
-bspc rule -a obs desktop='^8'
-bspc rule -a discord desktop='^7'
+bspc rule -a Slack desktop='^5'
+bspc rule -a obs desktop='^4'
+bspc rule -a discord desktop='^5'
+bspc rule -a steam desktop='^5'
+bspc rule -a alacritty focus=on
 
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
-#bspc rule -a Screenkey manage=off
+bspc rule -a Screenkey manage=off
 
-feh --bg-center ~/.cpu_city.png &
-#polybar --config=/home/bbaker/.config/polybar/config.ini nord &
-$HOME/.config/polybar/launch.sh
+# WALLPAPER
+#feh --bg-center /usr/share/backgrounds/Tree5160.png
+feh --bg-center ~/Pictures/Tree5160.png
+
+# POLYBAR
+~/.config/polybar/launch.sh
+
+# CUSTOM
+pgrep -u $(whoami) -f "bspdd.sh" || bspdd.sh &
+
+# PICOM
+picom -r 26 -b --config $HOME/.config/picom.conf &
+
+pkill -x redshift || sleep 2 || redshift -l 30.2672:-97.7333 -t 8000:1000 2>&1 &
+
+#$HOME/.fehbg &
+#feh --bg-center /usr/share/backgrounds/Tree5160.png &
+#wal -i $HOME/Pictures/Tree5160.png -n -R &
+#$HOME/.config/polybar/launch.sh &

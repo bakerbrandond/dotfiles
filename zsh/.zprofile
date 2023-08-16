@@ -18,13 +18,13 @@ fi
 #
 
 if [[ -z "$EDITOR" ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 if [[ -z "$VISUAL" ]]; then
-  export VISUAL='vim'
+  export VISUAL='nvim'
 fi
 if [[ -z "$PAGER" ]]; then
-  export PAGER='less'
+  export PAGER='most'
 fi
 
 #
@@ -87,6 +87,5 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 export SPOTIFY_ID=$GSPT_ID
 export SPOTIFY_SECRET=$GSPT_SECRET
-export PAGER=most
 
 PATH=$HOME/.local/bin:$PATH

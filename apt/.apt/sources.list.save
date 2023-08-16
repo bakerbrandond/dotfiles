@@ -1,0 +1,2 @@
+deb https://deb.debian.org/debian/ bookworm main contrib non-free-firmware
+deb https://deb.debian.org/debian/ bookworm-proposed-updates main contrib non-free-firmware

@@ -1,5 +1,5 @@
 [core]
-	editor = vim
+	editor = nvim
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -19,8 +19,8 @@
 	defaultBranch = master
 [commit]
 	gpgsign = true
-[include]
-    path = ~/.gitconfig.key
+#[include]
+    #path = ~/.gitconfig.key
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color "diff-highlight"]
@@ -37,9 +37,9 @@
 	new = green bold
 	whitespace = red reverse
 [user]
-	#signingkey = 7613835C7B5698A4
 	name = Brandon Baker
 	email = bakerbrandond@gmail.com
+	signingkey = AA0F2D28AFE76EAB
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [pull]
@@ -47,10 +47,15 @@
 [merge]
 	conflictstyle = diff3
 	tool = vimdiff
-[diff]
-	tool = difftastic
-	external = difft
+#[diff]
+	#tool = difftastic
+	#external = difft
 [difftool]
 	prompt = false
 [difftool "difftastic"]
 	cmd = difft $LOCAL $REMOTE
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

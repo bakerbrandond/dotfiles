@@ -1,6 +1,6 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-/*	font: "mono 12";*/
+	font: "CaskaydiaCove Nerd Font 15";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -145,5 +145,7 @@ configuration {
       sorting-method:    "name";
   }
 }
-//@theme "custom-nord"
-@theme "/home/bbaker/.local/share/rofi/themes/nord.rasi"
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+//@theme "nord"
+@theme "nord"

@@ -1,11 +1,7 @@
 ! ===== Colors
-! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
-! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+! Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+! This source code is licensed under the MIT license found in the license file.
 
-! Project:    Nord XResources
-! Version:    0.1.0
-! Repository: https://github.com/arcticicestudio/nord-xresources
-! License:    MIT
 
 #define nord0 #2E3440
 #define nord1 #3B4252
@@ -26,7 +22,7 @@
 
 *.foreground:   nord4
 *.background:   nord0
-*.cursorColor:  nord6
+*.cursorColor:  nord4
 *fading: 35
 *fadeColor: nord3
 
@@ -51,16 +47,17 @@
 Xcursor.size  : 32
 
 ! ===== fonts
-Xft.dpi       : 150
+Xft.dpi       : 192
+URxvt.font    : xft:CaskaydiaCove Nerd Font:size=10
 Xft.autohint  : 0
 Xft.lcdfilter : lcddefault
-Xft.hintstyle : hintslight
+Xft.hintstyle : hintfull
 Xft.hinting   : 1
 Xft.antialias : 1
 Xft.rgba      : rgb
 ! fixed is the one true font - use iso10646 for unicode characters
 ! *font	        : -misc-spleen-medium-r-normal--32-320-72-72-c-160-iso10646-1
-*faceName	: Noto Mono
+*faceName	: CaskaydiaCove Nerd Font
 *faceSize       : 12
 *renderFont     : true
 
@@ -141,6 +138,6 @@ xterm*utf8                   : 1
 
 ! GNU Emacs settings
 Emacs*geometry			     : 80x36
-Emacs*font					 : Noto Mono-12
+Emacs*font					 : CaskaydiaCove Nerd Font-12
 Emacs*toolBar				 : off
 

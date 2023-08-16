@@ -61,3 +61,5 @@ doas mixerctl outputs.master=255,255
 
 # start window mangler
 exec cwm
+
+exec betterlockscreen -w dim

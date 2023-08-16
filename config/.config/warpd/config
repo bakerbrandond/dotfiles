@@ -1,0 +1,19 @@
+cursor_color: #8FBCBB
+grid_color: #2E3440
+grid_border_color: #A3BE8C
+hint_bgcolor: #2E3440
+hint_fgcolor: #5E81AC
+hint_font: CaskaydiaCove Nerd Font
+indicator_color: #EBCB8B
+normal_blink_interval: 300 500
+
+##E5E9F0
+##88C0D0
+##2E3440
+##BF616A
+##5E81AC
+##EBCB8B
+##A3BE8C
+##D08770
+##E5E9F0
+##4C566A

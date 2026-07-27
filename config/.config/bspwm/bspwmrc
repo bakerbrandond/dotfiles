@@ -66,7 +66,8 @@ pgrep -u $(whoami) -f "bspdd.sh" || bspdd.sh &
 # PICOM
 picom -r 26 -b --config $HOME/.config/picom.conf &
 
-pkill -x redshift || sleep 2 || redshift -l 30.2672:-97.7333 -t 8000:1000 2>&1 &
+# Redshift: location and temperatures come from ~/.config/redshift.conf (stowed)
+pkill -x redshift && sleep 2; redshift 2>&1 &
 
 #$HOME/.fehbg &
 #feh --bg-center /usr/share/backgrounds/Tree5160.png &

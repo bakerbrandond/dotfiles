@@ -137,4 +137,5 @@ if command -v asdf >/dev/null 2>&1; then
 fi
 
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/.maestro/bin" ] && PATH="$HOME/.maestro/bin:$PATH"
 export PATH

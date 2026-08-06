@@ -28,7 +28,8 @@ super + alt + space
 
 # terminal emulator
 super + space
-	alacritty
+	ghostty
+	# alacritty
 
 # launch Chrome
 super + ctrl + space

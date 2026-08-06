@@ -28,6 +28,7 @@ fi
 
 # set PATH so it includes npm global installs
 PATH=/usr/local/lib/node_modules:$PATH
+PATH=/opt/android-studio/bin:$PATH
 #if [ -d $(npm root -g) ] ; then
     #PATH="$(npm root -g):$PATH"
 #fi
@@ -53,3 +54,6 @@ export GDK_DPI_SCALE=0.5
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 [ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+export ANDROID_HOME="/home/bbd/Android/Sdk"
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64

@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# bspwm starts with the bare system PATH; homebrew tools (feh) and
+# ~/.local/bin scripts (bspdd.sh) are invisible without this.
+export PATH="$HOME/.local/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+
 # source the colors.
 . "/home/bbd/.cache/wal/colors.sh"
 
@@ -14,19 +18,12 @@ xsetroot -cursor_name left_ptr &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-external_monitor=$(xrandr --query | grep 'DP-4-1')
-if [[ $external_monitor = *connected* ]]; then
-  echo "external connected"
-  xrandr --output DP-4-1 --primary --mode 3440x1440 --rotate normal --output eDP-1 --right-of DP-4-1 --mode 1920x1200 --rotate normal
-  bspc monitor DP-4-1 -d I #II III IV V #VI VII VIII IX X
-  bspc monitor DP-4-1 -d II III IV V VI #VII VIII IX X
-else
-  echo "no external connected"
-  xrandr --output eDP-1 --primary --mode 1920x1200 --rotate normal
-  bspc monitor eDP-1 -d I II III IV V #VI VII VIII IX X
-fi
+# Monitor layout is managed by autorandr; desktop assignment happens in
+# ~/.config/autorandr/postswitch. --force so the hook runs on bspwm restart too.
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+autorandr --change --force
 
-feh --bg-center /usr/share/backgrounds/Tree5160.png &
 
 bspc config border_width         3
 bspc config window_gap          12
@@ -54,14 +51,16 @@ bspc rule -a alacritty focus=on
 bspc rule -a Screenkey manage=off
 
 # WALLPAPER
-#feh --bg-center /usr/share/backgrounds/Tree5160.png
-feh --bg-center ~/Pictures/Tree5160.png
+feh --bg-fill /usr/share/backgrounds/Tree5160.png &
 
 # POLYBAR
 ~/.config/polybar/launch.sh
 
 # CUSTOM
-pgrep -u $(whoami) -f "bspdd.sh" || bspdd.sh &
+# bspdd.sh deletes unoccupied desktops, which fights the static I-VI layout
+# assigned in autorandr/postswitch. It only ever ran by accident (needed the
+# PATH export above); leave it off.
+#pgrep -u $(whoami) -f "bspdd.sh" || bspdd.sh &
 
 # PICOM
 picom -r 26 -b --config $HOME/.config/picom.conf &

@@ -156,6 +156,7 @@ docutils-common					install
 dosfstools					install
 dpkg						install
 dpkg-dev					install
+dunst						install
 dvisvgm						install
 dwarves						install
 dwz						install

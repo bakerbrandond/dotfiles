@@ -1,0 +1,105 @@
+# dunst - notification daemon
+#
+# Colors live in dunstrc.d/99-wal.conf, which is a symlink to the file pywal
+# renders from ~/.config/wal/templates/dunst-colors.conf. The urgency colors
+# at the bottom of THIS file are only fallbacks for when wal has not run yet.
+#
+# dunst has no config-reload command in 1.9, so use wal-reload.sh after
+# changing schemes.
+
+[global]
+    ### display ###
+    # follow the pointer across eDP-1 / DP-3-1, matching bspwm's
+    # focus_follows_pointer
+    follow = mouse
+
+    # NOTE: Xft.dpi is 192 in ~/.Xresources, so scale auto-detects to 2 and
+    # EVERY length below is doubled on screen. Values here are logical px;
+    # the physical result is in the trailing comment.
+    width = 260              # 520px - about a quarter of the 1920 panel
+    height = 200             # 400px max before the body is ellipsized
+    origin = top-right
+    offset = 6x26            # 12x52px: 12 = bspwm window_gap, 52 clears
+                             # polybar (height 3% + offset-y 5) on both panels
+    scale = 0
+    notification_limit = 6
+
+    ### progress bar ###
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 260
+
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 14
+    text_icon_padding = 8
+    frame_width = 2          # 4px, near bspwm's border_width 3
+    gap_size = 4             # 8px between stacked notifications
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+
+    ### text ###
+    font = CaskaydiaCove Nerd Font 11
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### icons ###
+    enable_recursive_icon_lookup = true
+    icon_theme = Nordzy-dark
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+
+    ### history ###
+    sticky_history = yes
+    history_length = 50
+
+    ### misc ###
+    dmenu = /usr/bin/rofi -dmenu -p dunst
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 12       # 24px, matches bspwm's border_radius 26
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+
+    ### mouse ###
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#2E3440"
+    foreground = "#E5E9F0"
+    frame_color = "#4C566A"
+    timeout = 5
+
+[urgency_normal]
+    background = "#2E3440"
+    foreground = "#E5E9F0"
+    frame_color = "#8FBCBB"
+    timeout = 8
+
+[urgency_critical]
+    background = "#2E3440"
+    foreground = "#E5E9F0"
+    frame_color = "#BF616A"
+    timeout = 0
+
+# vim: set ft=cfg:

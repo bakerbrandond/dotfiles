@@ -18,6 +18,10 @@ xsetroot -cursor_name left_ptr &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# Notification daemon. Debian's dunst ships no D-Bus activation file, so
+# nothing starts it on demand - it has to be launched here.
+pgrep -x dunst > /dev/null || dunst &
+
 # Monitor layout is managed by autorandr; desktop assignment happens in
 # ~/.config/autorandr/postswitch. --force so the hook runs on bspwm restart too.
 bspc config remove_disabled_monitors true

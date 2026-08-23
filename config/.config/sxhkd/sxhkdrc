@@ -171,4 +171,20 @@ super + alt + shift + {h,j,k,l}
 super + ctrl + {a,s,w,d}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+#
+# notifications (dunst)
+#
+
+# dismiss the top notification / dismiss all
+super + {_,shift + }n
+	dunstctl {close,close-all}
+
+# bring back the last dismissed notification
+super + ctrl + n
+	dunstctl history-pop
+
+# do-not-disturb toggle
+super + alt + n
+	dunstctl set-paused toggle
+
 # vim: set ft=sxhkdrc:

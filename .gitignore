@@ -1,3 +1,8 @@
 tmux/.config/tmux/plugins/*
 !tmux/.config/tmux/plugins/tpm
 **/*/*.log
+
+# claude package: track settings.json only; everything else in ~/.claude is
+# machine-local state or secrets (.credentials.json, history, transcripts).
+claude/.claude/*
+!claude/.claude/settings.json

@@ -1,1 +1,7 @@
+# Public keys trusted for verifying commit signatures — one line per machine.
+# Add a machine by appending its ~/.ssh/id_ed25519.pub here.
+# Empty lines and lines starting with '#' are ignored (see ssh-keygen(1),
+# ALLOWED SIGNERS).
+
 bakerbrandond@gmail.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFNwWZoZ5ApdRSVTPw6ElYEsOdG66E7Eocp/4Slr7OdG bakerbrandond@gmail.com
+bakerbrandond@gmail.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILDW5KTW/qa0lMZR5qWLoWvwa6CSoTXhD/MtGkc+Nr8m tallgeese

@@ -716,3 +716,7 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,emacs,visualstudiocode,visualstudio,vim,node,react,go
+
+### Claude Code ###
+# Per-project local settings and state; never belongs in a project repo.
+**/.claude/settings.local.json

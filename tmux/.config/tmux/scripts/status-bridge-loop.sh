@@ -1,17 +1,30 @@
 #!/usr/bin/env bash
 # Copy vimbridge files to stable paths tmux status bar reads (like battery-bridge).
-dir="/private/tmp/tmux-$(id -u)"
+# Deliberately not /tmp/tmux-$uid — that is tmux's own socket dir on Linux.
+dir="/tmp/tmux-status-$(id -u)"
 lockdir="$dir/status-bridge.lock.d"
 mkdir -p "$dir"
 
-if ! mkdir "$lockdir" 2>/dev/null; then
-  if pgrep -f 'status-bridge-loop\.sh' >/dev/null 2>&1; then
-    exit 0
+# Only one loop per user. The owner's pid lives in the lock, so a lock orphaned
+# by SIGKILL is recoverable — pgrep cannot do this, it always matches this
+# script itself.
+acquire_lock() {
+  local owner=''
+  if mkdir "$lockdir" 2>/dev/null; then
+    printf '%s' "$$" >"$lockdir/pid"
+    return 0
   fi
-  rmdir "$lockdir" 2>/dev/null || rm -rf "$lockdir"
-  mkdir "$lockdir" 2>/dev/null || exit 0
-fi
-trap 'rmdir "$lockdir" 2>/dev/null' EXIT
+  [[ -r "$lockdir/pid" ]] && read -r owner <"$lockdir/pid"
+  if [[ "$owner" =~ ^[0-9]+$ ]] && kill -0 "$owner" 2>/dev/null; then
+    return 1
+  fi
+  rm -rf "$lockdir"
+  mkdir "$lockdir" 2>/dev/null || return 1
+  printf '%s' "$$" >"$lockdir/pid"
+}
+
+acquire_lock || exit 0
+trap 'rm -rf "$lockdir" 2>/dev/null' EXIT
 
 clear_bridge() {
   local dst="$1" old tmp

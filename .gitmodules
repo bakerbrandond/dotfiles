@@ -40,3 +40,6 @@
 [submodule "vim/.vim/pack/bakerbrandond/start/coc.nvim"]
 	path = vim/.vim/pack/bakerbrandond/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule "zsh/.config/zsh/plugins/antidote"]
+	path = zsh/.config/zsh/plugins/antidote
+	url = https://github.com/mattmc3/antidote.git

@@ -1,12 +1,6 @@
 #
-# Defines environment variables.
+# Point zsh at the real config under XDG. Keep this file minimal: it is the
+# only zsh dotfile that lives in $HOME.
 #
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprofile"
-fi
-. "$HOME/.cargo/env"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+[[ -s "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"

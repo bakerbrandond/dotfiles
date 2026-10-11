@@ -1,0 +1,29 @@
+#
+# Template for ~/.zshrc.local — the last thing .zshrc sources, and the one
+# zsh file that is NOT tracked in this repo. Copy it to ~/.zshrc.local and
+# keep per-machine truth here: secrets, one-off PATH entries, and anything
+# that is true of exactly one machine.
+#
+# Everything below is commented out. These came out of the old single-machine
+# .zshrc; uncomment what applies on the machine you are on.
+#
+
+# Spotify theming (desktop machines)
+# path=($HOME/.spicetify $path)
+
+# LaTeX helper checkout
+# path=($HOME/latexrun $path)
+
+# Wine / games (one desktop only)
+# path=($HOME/.local/wine/bin $path)
+# export WINEPREFIX=~/Wine/Prefixes/rocket-league
+
+# pywal colors, if you run pywal on this machine
+# [[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.sh ]] &&
+#   source ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.sh
+
+# Wifi scan — the interface name is machine specific, check `ip link` first
+# alias lswifi='sudo iwlist wlp0s20f3 scan | grep -i ESSID'
+
+# Work-specific tooling, tokens, cloud profiles, etc.
+# export AWS_PROFILE=...

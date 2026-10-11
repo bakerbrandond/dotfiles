@@ -1,0 +1,4 @@
+# Generated at runtime (ZDOTDIR is a stow symlink into this repo).
+*.zwc
+.zcompdump*
+.zsh_plugins.zsh

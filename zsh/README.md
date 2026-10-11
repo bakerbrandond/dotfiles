@@ -1,77 +1,55 @@
-# Configuration Files
+# zsh
 
-Zsh has several system-wide and user-local configuration files.
+Portable across the three machines (WSL2, macOS, native Linux). Install with
+`stow --target=$HOME --restow --ignore=README.md zsh` from the repo root.
 
-Additionally, Prezto has one user-local configuration file.
+## Layout
 
-System-wide configuration files are installation-dependent but are installed
-in _`/etc`_ by default.
+Everything lives under `$ZDOTDIR` (`~/.config/zsh`). The only file in `$HOME`
+is `.zshenv`, which sets `ZDOTDIR` and hands off.
 
-User-local configuration files have the same name as their global counterparts
-but are prefixed with a dot (hidden). Zsh looks for these files in the path
-stored in the `$ZDOTDIR` environment variable. However, if said variable is
-not defined, Zsh will use the user's home directory.
+```
+.zshenv              -> ~/.zshenv        sets ZDOTDIR, nothing else
+.config/zsh/
+  .zshenv            XDG defaults + the zsh_conf_load helper. Runs for every
+                     zsh, including scripts — keep it tool-independent.
+  .zprofile          login only: editor/pager/lang, gpg, ssh-agent, secrets
+  .zshrc             instant prompt, antidote, then conf.d in order
+  .zlogin            fortune, if installed
+  conf.d/
+    00-options.zsh   setopt, history, keybindings
+    10-path.zsh      path/fpath, every entry conditional
+    20-brew.zsh      brew shellenv: /opt/homebrew, /usr/local, linuxbrew
+    30-aliases.zsh   aliases, each gated on its tool existing
+    40-tools.zsh     asdf, nvm, cargo, fzf, zoxide, navi, sgpt
+    50-os-darwin.zsh macOS only
+    50-os-linux.zsh  Linux only
+    55-os-wsl.zsh    WSL only, after 50-os-linux
+    90-completion.zsh compinit, once, cached
+  completions/       fpath dir (cobra-generated completions live here)
+  plugins/antidote/  submodule — run `git submodule update --init` on a new box
+```
 
-## File Descriptions
+`.zprofile` and `.zshrc` both call `zsh_conf_load`, which loads each file at
+most once per shell and skips the OS files that don't apply. That's what gives
+a non-login interactive shell (a tmux pane) the same environment as a login
+shell without doing the work twice.
 
-The [configuration files][1] are read in the following order:
+## Per-machine settings
 
-1.  _`/etc/zshenv`_
-2.  _`${ZDOTDIR:-$HOME}/.zshenv`_
-3.  _`/etc/zprofile`_
-4.  _`${ZDOTDIR:-$HOME}/.zprofile`_
-5.  _`/etc/zshrc`_
-6.  _`${ZDOTDIR:-$HOME}/.zshrc`_
-7.  _`${ZDOTDIR:-$HOME}/.zpreztorc`_
-8.  _`/etc/zlogin`_
-9.  _`${ZDOTDIR:-$HOME}/.zlogin`_
-10. _`${ZDOTDIR:-$HOME}/.zlogout`_
-11. _`/etc/zlogout`_
+`~/.zshrc.local` is sourced last and is not tracked here. Copy
+`.config/zsh/zshrc.local.example` to `~/.zshrc.local` and put machine-specific
+PATH entries, tokens and one-off aliases in it.
 
-### zshenv
+## Conventions
 
-This file is sourced by all instances of Zsh, and thus, it should be kept as
-small as possible and should only define environment variables.
+- Guard every optional tool: `(( $+commands[foo] )) && ...`, or `[[ -r file ]]`.
+  A missing tool disables its feature silently — no output at startup, which
+  also keeps powerlevel10k's instant prompt quiet.
+- Prefer `path=(... $path)` with the glob qualifier `(N)` so a missing
+  directory drops out instead of landing a dead entry on PATH.
+- Nothing may write to stdout/stderr before the instant-prompt block in
+  `.zshrc`.
 
-### zprofile
-
-This file is similar to _zlogin_, but it is sourced before _zshrc_. It was added
-for [KornShell][2] fans. See the description of _zlogin_ below for what it may
-contain.
-
-_zprofile_ and _zlogin_ are not meant to be used together but can be done so.
-
-### zshrc
-
-This file is sourced by interactive shells. It should define aliases, functions,
-shell options, and key bindings.
-
-### zpreztorc
-
-This file configures Prezto.
-
-### zlogin
-
-This file is sourced by login shells after _zshrc_. Thus, it should contain
-commands that need to execute at login. It is usually used for messages such as
-[_`fortune`_][3], [_`msgs`_][4], or for the creation of files.
-
-This is not the file to define aliases, functions, shell options, and key
-bindings. It should not change the shell environment.
-
-### zlogout
-
-This file is sourced by login shells during logout. It should be used for
-displaying messages and for deletion of files.
-
-## Authors
-
-_The authors of these files should be contacted via the [issue tracker][5]._
-
-- [Sorin Ionescu](https://github.com/sorin-ionescu)
-
-[1]: http://zsh.sourceforge.net/Intro/intro_3.html#SEC3
-[2]: https://www.kornshell.com
-[3]: https://en.wikipedia.org/wiki/Fortune_(Unix)
-[4]: https://www.manpagez.com/man/1/msgs
-[5]: https://github.com/sorin-ionescu/prezto/issues
+Formulae the config makes use of are listed in `../homebrew/.homebrew/Brewfile`
+(macOS) and `LinuxBrewfile` (Linux).

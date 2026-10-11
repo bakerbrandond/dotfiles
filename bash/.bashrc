@@ -118,4 +118,23 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-. "$HOME/.cargo/env"
+[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Homebrew: first prefix that exists wins (Apple Silicon, Intel mac, linuxbrew).
+for _brew in /opt/homebrew/bin/brew /usr/local/bin/brew \
+             /home/linuxbrew/.linuxbrew/bin/brew "$HOME/.linuxbrew/bin/brew"; do
+    if [ -x "$_brew" ]; then
+        eval "$("$_brew" shellenv)"
+        break
+    fi
+done
+unset _brew
+
+# asdf >= 0.16 is a single binary: shims on PATH is the whole integration.
+if command -v asdf >/dev/null 2>&1; then
+    export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+    PATH="$ASDF_DATA_DIR/shims:$PATH"
+fi
+
+[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+export PATH

@@ -19,8 +19,10 @@
 	defaultBranch = master
 [commit]
 	gpgsign = true
-#[include]
-    #path = ~/.gitconfig.key
+[include]
+	# Per-machine identity: name, email, signingkey, gpg.format.
+	# See README.md. Not tracked, because the signing key differs per machine.
+	path = ~/.gitconfig.key
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color "diff-highlight"]
@@ -36,10 +38,6 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[user]
-	name = Brandon Baker
-	email = bakerbrandond@gmail.com
-	signingkey = AA0F2D28AFE76EAB
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [pull]

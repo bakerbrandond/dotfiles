@@ -2,7 +2,7 @@
 	path = vim/.vim/pack/colors/start/nord-vim
 	url = http://github.com/arcticicestudio/nord-vim.git
 [submodule "tmux/.tmux/plugins/tpm"]
-	path = tmux/.tmux/plugins/tpm
+	path = tmux/.config/tmux/plugins/tpm
 	url = http://github.com/tmux-plugins/tpm.git
 [submodule "vim/.vim/pack/bakerbrandond/start/lightline.vim"]
 	path = vim/.vim/pack/bakerbrandond/start/lightline.vim

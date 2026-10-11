@@ -10,7 +10,7 @@ alias ctop=cointop
 alias vim='nvim'
 alias aliasrc='vim ~/.alias'
 alias vimrc='vim ~/.vimrc'
-alias tmuxrc='vim ~/.tmux.conf'
+alias tmuxrc='vim ~/.config/tmux/tmux.conf'
 alias tmx='tmux new-session -As 0'
 #alias tmux='TERM=xterm-256color tmux'
 #alias tmux='tmux -2'

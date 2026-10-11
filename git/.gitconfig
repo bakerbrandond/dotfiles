@@ -1,7 +1,6 @@
 [core]
 	editor = nvim
 	whitespace = trailing-space,space-before-tab
-	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	autocrlf = input
 [apply]
@@ -19,6 +18,9 @@
 	defaultBranch = master
 [commit]
 	gpgsign = true
+[gpg "ssh"]
+	# Public keys trusted for verifying signatures, one line per machine.
+	allowedSignersFile = ~/.config/git/allowed_signers
 [include]
 	# Per-machine identity: name, email, signingkey, gpg.format.
 	# See README.md. Not tracked, because the signing key differs per machine.

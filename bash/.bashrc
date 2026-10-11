@@ -130,12 +130,24 @@ for _brew in /opt/homebrew/bin/brew /usr/local/bin/brew \
 done
 unset _brew
 
+# Prepend a directory to PATH, but only if it exists and is not already
+# there. .profile sources this file, and a login shell can re-enter it, so a
+# bare prepend stacks up duplicates. This is the bash counterpart to
+# `typeset -gU path` on the zsh side.
+_path_prepend() {
+    [ -d "$1" ] || return 0
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
+
 # asdf >= 0.16 is a single binary: shims on PATH is the whole integration.
 if command -v asdf >/dev/null 2>&1; then
     export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
-    PATH="$ASDF_DATA_DIR/shims:$PATH"
+    _path_prepend "$ASDF_DATA_DIR/shims"
 fi
 
-[ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
-[ -d "$HOME/.maestro/bin" ] && PATH="$HOME/.maestro/bin:$PATH"
+_path_prepend "$HOME/.local/bin"
+_path_prepend "$HOME/.maestro/bin"
 export PATH

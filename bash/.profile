@@ -17,14 +17,18 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# Guarded so re-entry does not stack duplicates; this file sources .bashrc,
+# which prepends some of the same entries.
+case ":$PATH:" in
+    *":$HOME/bin:"*) ;;
+    *) [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH" ;;
+esac
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
 # set PATH so it includes npm global installs
 PATH=/usr/local/lib/node_modules:$PATH

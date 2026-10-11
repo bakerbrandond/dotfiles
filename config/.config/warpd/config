@@ -1,3 +1,10 @@
+left: h a
+down: j s
+up: k w
+right: l d
+buttons: m , .
+buttons: f r v
+
 cursor_color: #8FBCBB
 grid_color: #2E3440
 grid_border_color: #A3BE8C
@@ -7,6 +14,17 @@ hint_font: CaskaydiaCove Nerd Font
 indicator_color: #EBCB8B
 normal_blink_interval: 300 500
 
+# pywal variants, kept for reference. warpd parses this file as plain
+# key: value pairs and does not expand $vars, so these cannot be enabled
+# as-is -- they would need pywal to template the file out.
+#cursor_color: $color1
+#grid_color: $color2
+#grid_border_color: $color3
+#hint_bgcolor: $color4
+#hint_fgcolor: $color5
+#indicator_color: $color6
+
+# Nord palette
 ##E5E9F0
 ##88C0D0
 ##2E3440
@@ -15,5 +33,4 @@ normal_blink_interval: 300 500
 ##EBCB8B
 ##A3BE8C
 ##D08770
-##E5E9F0
 ##4C566A

@@ -1,0 +1,21 @@
+#
+# Ghostty. Stowed to ~/.config/ghostty.
+#
+
+# Pin the palette. Without this ghostty renders its own default colors, and
+# anything that styles by palette index -- p10k's prompt, tmux's status bar
+# before it moved to explicit hex -- came out a different color on every
+# machine. `ghostty +list-themes` shows what else ships.
+theme = Nord
+
+font-size = 10
+background-opacity = 0.8
+
+# Cursor trail. shaders/ is the upstream submodule, kept pristine so it can be
+# updated; shaders-nord/ holds the variant recolored to nord15 (#B48EAD).
+custom-shader = shaders-nord/cursor_warp.glsl
+
+gtk-custom-css = ~/.config/ghostty/gtk.css
+
+# Blank window title (an empty value resets to the default, so use a space)
+title = " "

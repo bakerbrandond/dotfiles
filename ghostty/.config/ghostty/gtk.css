@@ -1,0 +1,15 @@
+/* Semi-transparent headerbar (loaded via gtk-custom-css) */
+:root {
+  --headerbar-bg-color: rgba(40, 44, 52, 0.45);
+  --headerbar-backdrop-color: rgba(30, 33, 39, 0.45);
+}
+
+headerbar,
+windowhandle {
+  background-color: var(--headerbar-bg-color);
+}
+
+headerbar:backdrop,
+windowhandle:backdrop {
+  background-color: var(--headerbar-backdrop-color);
+}

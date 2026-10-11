@@ -43,3 +43,6 @@
 [submodule "zsh/.config/zsh/plugins/antidote"]
 	path = zsh/.config/zsh/plugins/antidote
 	url = https://github.com/mattmc3/antidote.git
+[submodule "ghostty/.config/ghostty/shaders"]
+	path = ghostty/.config/ghostty/shaders
+	url = https://github.com/sahaj-b/ghostty-cursor-shaders.git

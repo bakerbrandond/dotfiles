@@ -41,8 +41,8 @@ alias vimdiff='nvim -d'
 #alias redshift='redshift -x || redshift -P -l 30.2672:-97.7333 -t 8000:1000 2>&1 &!'
 alias leet="nvim leetcode.nvim"
 
-# Import the colors.
-. "${HOME}/.cache/wal/colors.sh"
+# Import the colors, if pywal has been run on this machine.
+[ -r "${HOME}/.cache/wal/colors.sh" ] && . "${HOME}/.cache/wal/colors.sh"
 
 # Create the alias.
 alias dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'
@@ -55,6 +55,9 @@ function ya() {
     fi
     rm -f -- "$tmp"
 }
-alias scrot="scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'optipng $f && mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'"
+# $f is scrot's own placeholder for the captured filename, so the old
+# `ls -1 -t | head -1` was never needed -- and its backticks ran at alias
+# definition time, erroring on every shell start.
+alias scrot='scrot -s "screenshot_%Y%m%d_%H%M%S.png" -e "optipng \$f && mkdir -p ~/Pictures/screenshots && mv \$f ~/Pictures/screenshots/ && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/\$f"'
 #alias scrot="scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'"
 

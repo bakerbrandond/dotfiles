@@ -26,7 +26,10 @@
     ],
     "profiles": {
         "defaults": {
-            "colorScheme": "Nord"
+            "colorScheme": "Nord",
+            "font": {
+                "face": "CaskaydiaCove NF"
+            }
         }
     }
 }

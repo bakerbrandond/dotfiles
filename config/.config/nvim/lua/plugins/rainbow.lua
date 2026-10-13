@@ -36,6 +36,16 @@ return {
       vim.api.nvim_create_autocmd("ColorScheme", { callback = set_highlights })
 
       require("rainbow-delimiters.setup").setup({
+        -- On nvim 0.12 get_parser returns nil instead of throwing, so the
+        -- plugin's own guard misses and it errors on every filetype with no
+        -- parser (openscad, tcl, ...). Returning nil skips the buffer.
+        strategy = {
+          [""] = function(bufnr)
+            if vim.treesitter.get_parser(bufnr, nil, { error = false }) then
+              return require("rainbow-delimiters").strategy["global"]
+            end
+          end,
+        },
         highlight = {
           "RainbowDelimiterBlue",
           "RainbowDelimiterGreen",

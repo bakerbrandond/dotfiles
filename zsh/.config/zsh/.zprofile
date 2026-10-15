@@ -32,8 +32,25 @@ if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+#
+# Locale
+#
+# Pick the first locale that is actually generated. en_US.UTF-8 is not present
+# everywhere -- WSL images ship C.UTF-8 only -- and exporting a locale that
+# does not exist makes every program warn:
+#   bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+#
+if [[ -z "$LANG" ]] && (( $+commands[locale] )); then
+  () {
+    local -a available=( ${(f)"$(locale -a 2>/dev/null)"} )
+    local candidate
+    for candidate in en_US.UTF-8 en_US.utf8 C.UTF-8 C.utf8; do
+      if (( $available[(Ie)$candidate] )); then
+        export LANG=$candidate
+        break
+      fi
+    done
+  }
 fi
 
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).

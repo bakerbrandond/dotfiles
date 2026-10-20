@@ -53,8 +53,11 @@ text = "CellForeground"
 cursor = "#d8dee9"
 text = "#2e3440"
 
+[font]
+size = 18
+
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
+family = "CaskaydiaCove Nerd Font Propo"
 
 [window]
-opacity = 0.78
+opacity = 0.98

@@ -53,11 +53,12 @@ fi
 export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME=$HOME/.config
 
-# No GDK_SCALE here on purpose. It only takes integers, so this ~171 DPI
-# panel got rounded up to 2x -- a 960x600 logical screen that fixed-size
-# windows overflowed. Fractional scaling comes from Xft.dpi in .Xresources
-# instead; this lets Qt read it too.
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# No display scaling is set here. GDK_SCALE is deliberately absent -- it only
+# takes integers, so this ~171 DPI panel got rounded up to 2x, a 960x600
+# logical screen that fixed-size windows overflowed. Fractional scaling comes
+# from Xft.dpi in .Xresources, and Qt's QT_AUTO_SCREEN_SCALE_FACTOR lives in
+# x11/.xsessionrc, which the X session actually sources -- this file is read by
+# bash login shells only, and the login shell here is zsh.
 
 [ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 

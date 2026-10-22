@@ -1,2 +1,13 @@
 #!/bin/bash
+#
+# Sourced by /etc/X11/Xsession.d/40x11-common_xsessionrc, so everything exported
+# here reaches bspwm and every app launched from it.
+#
+
+# Qt scales from Xft.dpi only when this is set (Qt5; Qt6 honours Xft.dpi on its
+# own). It lives here rather than in bash/.profile because nothing on this
+# machine reads that file -- the login shell is zsh, and no Xsession.d script
+# sources it. GTK and wxWidgets pick Xft.dpi up without any env var.
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 exec bspwm

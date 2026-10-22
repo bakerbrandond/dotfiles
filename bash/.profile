@@ -53,8 +53,10 @@ fi
 export GPG_TTY=$(tty)
 export XDG_CONFIG_HOME=$HOME/.config
 
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+# No GDK_SCALE here on purpose. It only takes integers, so this ~171 DPI
+# panel got rounded up to 2x -- a 960x600 logical screen that fixed-size
+# windows overflowed. Fractional scaling comes from Xft.dpi in .Xresources
+# instead; this lets Qt read it too.
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 [ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

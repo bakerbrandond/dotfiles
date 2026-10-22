@@ -47,7 +47,11 @@
 Xcursor.size  : 32
 
 ! ===== fonts
-Xft.dpi       : 192
+! 1.5x on this 13.3-inch 1920x1200 panel (~171 true DPI). GTK3, Qt (via
+! QT_AUTO_SCREEN_SCALE_FACTOR) and wxWidgets apps like BambuStudio all derive
+! their UI scale from this, so it is the single knob for fractional scaling.
+! Do not pair this with GDK_SCALE -- that one is integer-only and compounds.
+Xft.dpi       : 144
 URxvt.font    : xft:CaskaydiaCove Nerd Font:size=10
 Xft.autohint  : 0
 Xft.lcdfilter : lcddefault

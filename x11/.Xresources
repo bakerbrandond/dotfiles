@@ -44,6 +44,10 @@
 *.color15: nord6
 
 ! ===== cursors
+! Adwaita ships cursors at 24/32/48/64/96 only. The ideal for Xft.dpi 144 is
+! 36px (24 x 1.5), which has no image, so a request for it resolves to the
+! nearest native size anyway -- 32. Asking for 36 gains nothing; 48 is the next
+! real step up and reads as a 2x cursor on a 1.5x desktop.
 Xcursor.size  : 32
 
 ! ===== fonts

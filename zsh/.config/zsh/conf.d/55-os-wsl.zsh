@@ -8,6 +8,12 @@
 # box, so add it explicitly.
 [[ -d /usr/lib/wsl/lib ]] && path+=(/usr/lib/wsl/lib)
 
+# WSLg runs a Wayland compositor, but exports nothing, so wl-clipboard (and
+# anything else Wayland-aware, including nvim's clipboard) cannot find it.
+# WSLg keeps this clipboard in sync with Windows' in both directions.
+[[ -z $WAYLAND_DISPLAY && -S ${XDG_RUNTIME_DIR:-/run/user/$UID}/wayland-0 ]] &&
+  export WAYLAND_DISPLAY=wayland-0
+
 (( $+commands[clip.exe] ))   && alias clip='clip.exe'
 (( $+commands[wslview] ))    && alias o='wslview'
 (( $+commands[explorer.exe] )) && alias e='explorer.exe .'
